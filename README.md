@@ -55,12 +55,16 @@ python manage.py runserver
 
 - ```/summary```
   (GET)
+
+
 - ```/users/```
     (GET, POST)
 - ```/users/:id/ ```
     (GET, PUT, DELETE)
 - ```/users/:id/tasks/```
     (GET)
+
+
 - ```/tasks/```
     (GET, POST)
 - ```/tasks/:id/```
