@@ -22,9 +22,9 @@ class TaskSerializer(serializers.ModelSerializer):
 class TaskOfUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = Task
-        fields = ['id', 'title', 'description', 'status', 'priority']
+        exclude = ['user']
 
 class UserOfTaskSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'first_name', 'last_name', 'email']
+        exclude = ['tasks']
