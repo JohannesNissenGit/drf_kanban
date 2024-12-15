@@ -50,3 +50,21 @@ run server:
 ```
 python manage.py runserver
 ```
+
+## 📝 API Endpoints
+
+- ```/summary```
+  (GET)
+- ```/users/```
+    (GET, POST)
+- ```/users/:id/ ```
+    (GET, PUT, DELETE)
+- ```/users/:id/tasks/```
+    (GET)
+- ```/tasks/```
+    (GET, POST)
+- ```/tasks/:id/```
+    (GET, PUT, DELETE)
+- ```/tasks/:id/users/```
+    (GET)
+
