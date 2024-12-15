@@ -21,7 +21,7 @@ class TaskOfUserView(generics.ListAPIView):
 
     def get_queryset(self):
         user_id = self.kwargs['pk']
-        return Task.objects.filter(user__id=user_id)
+        return Task.objects.filter(users__id=user_id)
 
 
 class UserOfTaskView(generics.ListAPIView):
@@ -29,7 +29,8 @@ class UserOfTaskView(generics.ListAPIView):
 
     def get_queryset(self):
         task_id = self.kwargs['pk']
-        return User.objects.filter(task__id=task_id)
+        return User.objects.filter(tasks__id=task_id)
+
 
 class SummaryView(generics.ListAPIView):
     serializer_class = UserSerializer
@@ -55,6 +56,3 @@ class SummaryView(generics.ListAPIView):
             'total_feedback_tasks': feedback_tasks.count(),
             'total_urgent_priority_tasks': urgent_priority_tasks.count()
         })
-
-
-
