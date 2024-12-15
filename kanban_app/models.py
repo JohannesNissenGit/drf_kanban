@@ -1,3 +1,5 @@
+import json
+
 from django.db import models
 
 
@@ -53,9 +55,16 @@ class Task(models.Model):
         choices=Priority.choices,
         default=Priority.MED,
     )
-    users = models.ManyToManyField(User, related_name='tasks')
+    users = models.ManyToManyField(User, related_name='tasks', blank=True)
+    subtasks = models.JSONField(default=None, blank=True, null=True)
+
+    # the following functions convert the json from JSONField into a list and back when getting and retrieving the subtasks
+    def set_subtasks(self, x):
+        self.subtasks = json.dumps(x)
+
+    def get_subtasks(self):
+        return json.loads(self.subtasks)
 
     def __str__(self):
         return f"{self.title} ({self.Status})"
-
 # endregion
